@@ -1,0 +1,24 @@
+{
+  "name": "headerrequest",
+  "version": "1.0.0",
+  "description": "project for FCC, return the header request.",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "body-parser" : "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spot1000/headerRequest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spot1000/headerRequest/issues"
+  },
+  "homepage": "https://github.com/spot1000/headerRequest#readme"
+}
