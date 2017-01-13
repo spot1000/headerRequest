@@ -7,13 +7,14 @@ app.enable('trust proxy');
 
 
 app.get('/', function(req, res) {
-  var headerObj = req.headers['x-forwarded-for'] ||
-         req.connection.remoteAddress ||
-	      req.socket.remoteAddress ||
-	           req.connection.socket.remoteAddress;
-  var lang = req..headers('Accept-Language');
-  var os = req.headers('User-Agent');
-  res.send(headerObj + lang + os);
+  var headerObj = {'ip' : req.headers['x-forwarded-for'] ||
+                          req.connection.remoteAddress ||
+	                        req.socket.remoteAddress ||
+	                        req.connection.socket.remoteAddress,
+                  'language':req.get('Accept-Language').split(',')[0],
+                  'os' : req.get('User-Agent').split(/[\(\)]/)[1]
+                }
+  res.send(headerObj);
 })
 
 app.listen(port, function() {
