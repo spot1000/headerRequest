@@ -7,7 +7,7 @@ app.enable('trust proxy');
 
 
 app.get('/', function(req, res) {
-  var headerObj = req.ip;
+  var headerObj = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   res.send(headerObj)
 })
 
