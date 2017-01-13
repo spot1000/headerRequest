@@ -11,7 +11,9 @@ app.get('/', function(req, res) {
          req.connection.remoteAddress ||
 	      req.socket.remoteAddress ||
 	           req.connection.socket.remoteAddress;
-  res.send(headerObj)
+  var lang = req..headers('Accept-Language');
+  var os = req.headers('User-Agent');
+  res.send(headerObj + lang + os);
 })
 
 app.listen(port, function() {
