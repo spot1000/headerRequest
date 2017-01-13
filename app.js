@@ -3,12 +3,11 @@ var app = express();
 var bodyparser = require('body-parser');
 var port = process.env.PORT || 8080;
 
+app.enable('trust proxy');
+
 
 app.get('/', function(req, res) {
-  var headerObj = req.headers['x-forwarded-for'] ||
-     req.connection.remoteAddress ||
-     req.socket.remoteAddress ||
-     req.connection.socket.remoteAddress;
+  var headerObj = req.ip;
   res.send(headerObj)
 })
 
